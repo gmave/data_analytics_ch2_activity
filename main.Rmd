@@ -49,3 +49,31 @@ summary(eda_events)
 
 
 
+## Interactive Visualizaton
+```{r}
+library(plotly)
+
+plot_ly(
+  data = eda_events,
+  x = ~Attendance,
+  y = ~SatisfactionScore,
+  type = "scatter",
+  mode = "markers",
+  color = ~EventType,
+  text = ~paste(
+    "Event Type:", EventType,
+    "<br>Attendance:", Attendance,
+    "<br>Satisfaction:", SatisfactionScore
+  ),
+  hoverinfo = "text"
+)
+
+```
+
+
+##Mini Dashboard
+
+##Geographical Mapping
+
+##Short reflection (5–7 sentences)
+
