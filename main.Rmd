@@ -21,7 +21,6 @@ eda_events <- data.frame(
   TicketPrice = round(runif(180, 0, 50), 2)
 )
 
-# Attendance: capped by capacity, skewed, with drop-off
 eda_events$Attendance <- round(
   pmin(
     eda_events$VenueCapacity,
@@ -29,7 +28,6 @@ eda_events$Attendance <- round(
   )
 )
 
-# Satisfaction: nonlinear + noisy
 eda_events$SatisfactionScore <- round(
   65 +
     6 * log(eda_events$DurationHours) -
@@ -39,7 +37,6 @@ eda_events$SatisfactionScore <- round(
   1
 )
 
-# Clamp satisfaction to 0–100
 eda_events$SatisfactionScore <-
   pmax(pmin(eda_events$SatisfactionScore, 100), 0)
 
